@@ -1,0 +1,16 @@
+.search {
+    float:right;
+}
+.searchIcon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    opacity: 0.5;
+    float: right;
+    background: url('./../img/search-icon.png') no-repeat center center;
+    opacity: 0.5; /* Adjust the opacity to your liking for the watermark effect */
+}

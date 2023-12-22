@@ -17,7 +17,7 @@ public class JwtUtil {
     private final String keystorePath = "/jks/ebook.jks";
     private final String keystorePassword = "password";
     private final String keyAlias = "ebook";
-    public static final long EXPIRATION_TIME = 300000; //5  min
+    public static final long EXPIRATION_TIME = 86400000; // 1 day
 
     public String generateToken(String username) {
         PrivateKey privateKey = getPrivateKey();

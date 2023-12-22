@@ -3,6 +3,7 @@ package com.emotorad.service.dto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class UserDetails extends User {
@@ -10,7 +11,7 @@ public class UserDetails extends User {
    private String email;
 
     public UserDetails(String email) {
-        super(null, null, null);
+        super(email, "password", new ArrayList<>());
         this.email=email;
 
     }

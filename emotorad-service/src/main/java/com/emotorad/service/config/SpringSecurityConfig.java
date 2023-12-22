@@ -17,6 +17,8 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -57,12 +59,25 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests()
-                .anyRequest().permitAll();
-
-         /*       .authenticated().and()
-                .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and()
+                .antMatchers(
+                        HttpMethod.GET,
+                        "/index*", "/static/**", "/*.js", "/*.json", "/*.ico").permitAll()
+                .antMatchers("/swagger-ui/**","/v2/api-docs/**","/v3/api-docs/**","/login").permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/index").defaultSuccessUrl("/loginSuccess").permitAll().and()
+                //.successHandler(customAuthenticationSuccessHandler()).permitAll().and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login")
+                .and()
+                .authorizeRequests()
+                .anyRequest()
+                .authenticated().and()
+                .exceptionHandling()
+                .authenticationEntryPoint(jwtAuthenticationEntryPoint).and()
                 .addFilterBefore(new JwtAuthorizationFilter(userDetailsService), UsernamePasswordAuthenticationFilter.class)
-                .addFilter(new JwtAuthenticationFilter(authenticationManager()));*/
+                .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
     }
     @Override
@@ -81,7 +96,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
+        return new AuthenticationManager() {
+            @Override
+            public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+
+                return authentication;
+            }
+        };
     }
 
     @Bean

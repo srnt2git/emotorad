@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -31,16 +32,23 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         this.authenticationManager = authenticationManager;
         setAuthenticationManager(authenticationManager);
     }
+
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
-        if (!request.getMethod().equals("POST")) {
-            throw new AuthenticationServiceException(
-                    "Authentication method not supported: " + request.getMethod());
-        }
-        String email = request.getParameter("email");
-        com.emotorad.service.dto.UserDetails userDetails=new com.emotorad.service.dto.UserDetails(email);
-        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken=new UsernamePasswordAuthenticationToken(email,null);
-        return usernamePasswordAuthenticationToken;
+    protected String obtainPassword(HttpServletRequest request) {
+        return "password";
+    }
+
+    @Override
+    protected String obtainUsername(HttpServletRequest request) {
+        return request.getHeader("email");
+    }
+
+    @Override
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+        String username = obtainUsername(request);
+        UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
+                username, "password");
+        return super.attemptAuthentication(request, response);
     }
 
     @Override
