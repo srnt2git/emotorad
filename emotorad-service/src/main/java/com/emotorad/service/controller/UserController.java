@@ -25,7 +25,6 @@ public class UserController {
 
     @GetMapping("/findByMail")
     public UserDto findByMail() {
-
         return userService.findByEmail();
     }
 

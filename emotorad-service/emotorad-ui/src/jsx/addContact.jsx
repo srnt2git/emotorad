@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { postWithHeader, getJwtToken, post } from "./httpClient";
 import { useError } from './errorContext';
 import { useJwt } from './jwtcontext';
-
-
-
-
 export default function AddContact() {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
