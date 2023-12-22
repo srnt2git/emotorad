@@ -1,0 +1,17 @@
+/* DialogStyles.module.css */
+
+.customDialog {
+    min-width: 300px;
+    text-align: center;
+    color:red
+
+}
+
+.customDialogContent {
+    /* Add styles for the content of the dialog */
+    min-width: 300px;
+    text-align: center;
+    background-color:red;
+    width:10px
+       
+}

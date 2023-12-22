@@ -23,5 +23,16 @@ public class UserController {
         return userService.getAllUser();
     }
 
+    @GetMapping("/findByMail")
+    public UserDto findByMail() {
 
+        return userService.findByEmail();
+    }
+
+    @PostMapping(value = {"/addTest"})
+    public void addTestUser() {
+        UserDto userDto = new UserDto();
+        userDto.setEmail("raja@gmail.com");
+        userService.saveUser(userDto);
+    }
 }

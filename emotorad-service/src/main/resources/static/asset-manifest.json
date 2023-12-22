@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/ebook/static/css/main.a85eb386.css",
-    "main.js": "/ebook/static/js/main.adb42c3c.js",
-    "static/js/787.4a58efd7.chunk.js": "/ebook/static/js/787.4a58efd7.chunk.js",
-    "static/media/search-icon.png": "/ebook/static/media/search-icon.b2a005e479d3b6015a86.png",
-    "index.html": "/ebook/index.html",
-    "main.a85eb386.css.map": "/ebook/static/css/main.a85eb386.css.map",
-    "main.adb42c3c.js.map": "/ebook/static/js/main.adb42c3c.js.map",
-    "787.4a58efd7.chunk.js.map": "/ebook/static/js/787.4a58efd7.chunk.js.map"
+    "main.css": "/emotorad/static/css/main.f855e6bc.css",
+    "main.js": "/emotorad/static/js/main.60371ba4.js",
+    "static/js/787.aaaf14a3.chunk.js": "/emotorad/static/js/787.aaaf14a3.chunk.js",
+    "static/media/logo.svg": "/emotorad/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/emotorad/index.html",
+    "main.f855e6bc.css.map": "/emotorad/static/css/main.f855e6bc.css.map",
+    "main.60371ba4.js.map": "/emotorad/static/js/main.60371ba4.js.map",
+    "787.aaaf14a3.chunk.js.map": "/emotorad/static/js/787.aaaf14a3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a85eb386.css",
-    "static/js/main.adb42c3c.js"
+    "static/css/main.f855e6bc.css",
+    "static/js/main.60371ba4.js"
   ]
 }

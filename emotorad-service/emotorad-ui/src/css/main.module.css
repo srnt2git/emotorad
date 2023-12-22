@@ -1,0 +1,41 @@
+/* Define a keyframe animation named 'fadeOut' */
+@keyframes fadeOut {
+    from {
+        opacity: 1; /* Starting opacity */
+    }
+
+    to {
+        opacity: 0; /* Ending opacity */
+    }
+}
+
+/* Apply the 'fadeOut' animation to the element */
+.errorDiv {
+    background: red;
+    color: white;
+    padding: 5px;
+    animation: fadeOut 10s ease-in-out forwards; /* Animation duration, timing function, etc. */
+    animation-fill-mode: forwards;
+    z-index:2;
+}
+.main {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+
+.closebutton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+}
+
+    .closebutton:hover {
+        color: #333;
+    }

@@ -1,0 +1,70 @@
+table {
+    border-collapse: collapse;
+    
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    background-color: mediumaquamarine;
+    flex-direction: column;
+}
+
+.dropdowncontent {
+    display: none;
+    position: absolute;
+    background-color: azure;
+    min-width: 100px;
+    box-shadow: 0px 5px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 1;
+    height:30px;
+    border:5px solid none;
+
+}
+
+.verticalMenu:hover .dropdowncontent {
+    display: block;
+}
+.dropdowncontent a {
+    padding: 10px;
+}
+.dropdown p:hover {
+    background-color: mediumaquamarine;
+}
+/* VerticalMenu.css */
+.appContainer {
+    display: flex;
+}
+.contentContainer {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+    /* Additional styles for the centered content */
+.contentContainer h1 {
+        color: #333;
+}
+.contentContainer p {
+        color: #666;
+}
+.verticalMenu {
+    display: flex;
+    width: 200px; /* Set the width of the vertical menu */
+    background-color: #f2f2f2; /* Set the background color */
+    padding: 10px; /* Add padding for spacing */
+    height: 40px;
+}
+.verticalMenu a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: mediumaquamarine; /* Set the text color */
+    transition: background-color 0.3s; /* Add a smooth transition effect on hover */
+}
+.verticalMenu a:hover {
+        background-color: rgba(0,0,0,0.2); /* Set the background color on hover */
+        padding:10px;
+      
+}

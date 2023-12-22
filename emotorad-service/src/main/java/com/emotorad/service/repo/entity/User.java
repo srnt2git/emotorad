@@ -3,6 +3,7 @@ package com.emotorad.service.repo.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RedisHash("user")
@@ -15,10 +16,15 @@ public class User {
 
     private String email;
 
-    private List<Contact> contacts;
+    private List<Contact> contacts=new ArrayList<>();
 
     @Override
     public boolean equals(Object obj) {
+
+        if(this.email==null || obj ==null){
+
+            return false;
+        }
         User user= (User) obj;
         return this.email.equals(user.email) || this.phoneNumber==user.phoneNumber;
     }
