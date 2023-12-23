@@ -70,9 +70,9 @@ export default function ContactList() {
                                 <td>{contact.id}</td>
                                 <td>{contact.email}</td>
                                 <td>{contact.phoneNumber}</td>
+                                <td>{contact.contactType}</td>
                                 <td>{contact.createdAt}</td>
                                 <td>{contact.updatedAt}</td>
-                                <td>{contact.contactType}</td>
                                 
                             </tr>
                         </>
