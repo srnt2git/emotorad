@@ -15,6 +15,9 @@ export default function Messaging() {
         handleAddDisplay(true);
     };
     const handleAddClose = () => {
+        setTimeout(() => {
+            console.log("waiting for message published");
+        }, 10000)
         handleAddDisplay(false);
         setRender(!render)
      };
