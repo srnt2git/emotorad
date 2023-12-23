@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-package-lock.json
+
 # testing
 /coverage
 
@@ -21,11 +21,3 @@ package-lock.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/node/node_modules/npm/bin/node-gyp-bin/node-gyp
-
-/.vs/emotorad-ui/FileContentIndex/2b22f611-6113-4c3b-bd3b-4b8156f97895.vsidx
-/.vs/emotorad-ui/FileContentIndex/2d2ce84d-e27c-4ba5-bb56-ecce0f43a294.vsidx
-/.vs/emotorad-ui/FileContentIndex/7ed69d81-28a8-46b8-bffb-c85b648bf27d.vsidx
-/.vs/emotorad-ui/FileContentIndex/84b77dae-7863-4228-accb-6da9b6610f55.vsidx
-/.vs/emotorad-ui/FileContentIndex/dcc9c936-9b59-4924-8eb4-de37298b7569.vsidx
-/.vs/slnx.sqlite
