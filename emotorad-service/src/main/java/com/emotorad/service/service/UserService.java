@@ -41,7 +41,10 @@ public class UserService {
                 }
                 contact.setUpdatedAt(LocalDateTime.now());
                 contact.setLinkPrecedence("PRIMARY");
-                users.getContacts().add(contact);
+                if(users.getContacts().size()>1){
+                    users.getContacts().getFirst().setLinkPrecedence("SECONDARY");
+                }
+                users.getContacts().addFirst(contact);
             });
         }
         userRepository.save(users);

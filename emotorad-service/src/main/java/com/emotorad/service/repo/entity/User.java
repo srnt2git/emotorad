@@ -5,6 +5,7 @@ import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @RedisHash("user")
@@ -18,7 +19,7 @@ public class User {
     @Indexed
     private String email;
 
-    private List<Contact> contacts=new ArrayList<>();
+    private LinkedList<Contact> contacts=new LinkedList<>();
 
     @Override
     public boolean equals(Object obj) {
@@ -55,12 +56,11 @@ public class User {
         this.email = email;
     }
 
-    public List<Contact> getContacts() {
+    public LinkedList<Contact> getContacts() {
         return contacts;
     }
 
-    public void setContacts(List<Contact> contacts) {
+    public void setContacts(LinkedList<Contact> contacts) {
         this.contacts = contacts;
     }
-
 }
