@@ -1,6 +1,7 @@
 package com.emotorad.service.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -26,6 +27,7 @@ public class ContactDto {
 
     private int linkedId;
 
+    @JsonProperty("contactType")
     private String linkPrecedence;
 
     private LocalDateTime createdAt;

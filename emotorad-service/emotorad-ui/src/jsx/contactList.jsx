@@ -15,6 +15,9 @@ export default function ContactList() {
             id: 1,
             email: 'simple@gmail.com',
             phoneNumber: '+911203948587',
+            createdAt:'',
+            updatedAt: '',
+            contactType:"PRIMARY"
            
 
         }]
@@ -46,14 +49,17 @@ export default function ContactList() {
         <table >
             <thead>
                 <tr>
-                    <th colSpan="3">
+                    <th colSpan="6">
                         Add Contact: <button onClick={openAddDialogBox} >Add</button>
                     </th>                    
                 </tr>
                 <tr>
                     <th>Id</th>
                     <th>Email</th>
-                    <th>Phone Number</th>                  
+                    <th>Phone Number</th>
+                    <th>Contact Type </th>
+                    <th>createdAt</th>
+                    <th>updatedAt </th> 
                 </tr>
             </thead>
             <tbody>
@@ -64,6 +70,9 @@ export default function ContactList() {
                                 <td>{contact.id}</td>
                                 <td>{contact.email}</td>
                                 <td>{contact.phoneNumber}</td>
+                                <td>{contact.createdAt}</td>
+                                <td>{contact.updatedAt}</td>
+                                <td>{contact.contactType}</td>
                                 
                             </tr>
                         </>

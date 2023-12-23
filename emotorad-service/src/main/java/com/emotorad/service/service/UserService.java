@@ -11,6 +11,7 @@ import com.emotorad.service.util.UserServiceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,6 +36,11 @@ public class UserService {
         if(users!=null){
             userDto.getContactDtos().stream().forEach(c->{
                 Contact contact=userMapper.dtoToEntity(c);
+                if(contact.getCreatedAt()==null){
+                    contact.setCreatedAt(LocalDateTime.now());
+                }
+                contact.setUpdatedAt(LocalDateTime.now());
+                contact.setLinkPrecedence("PRIMARY");
                 users.getContacts().add(contact);
             });
         }
