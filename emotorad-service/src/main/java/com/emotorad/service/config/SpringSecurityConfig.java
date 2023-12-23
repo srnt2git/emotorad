@@ -62,7 +62,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         HttpMethod.GET,
                         "/index*", "/static/**", "/*.js", "/*.json", "/*.ico").permitAll()
-                .antMatchers("/swagger-ui/**","/v2/api-docs/**","/v3/api-docs/**","/login").permitAll()
+                .antMatchers("/swagger-ui/**","/v2/api-docs/**","/v3/api-docs/**","/login","/swagger-resources/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/index").defaultSuccessUrl("/loginSuccess").permitAll().and()
