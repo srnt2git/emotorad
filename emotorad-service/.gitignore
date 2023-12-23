@@ -28,3 +28,4 @@ yarn-error.log*
 /target/
 **/static/
 **/node/
+**/package-lock.json

@@ -14,7 +14,7 @@ import java.util.Set;
 public class UserDto {
 
     private String id;
-    private int phoneNumber;
+    private String phoneNumber;
 
     @Email
     private String email;
@@ -52,12 +52,14 @@ public class UserDto {
         this.contactDtos = contactDtos;
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
+
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public String getEmail() {
