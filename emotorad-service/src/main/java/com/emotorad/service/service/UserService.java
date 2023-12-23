@@ -41,7 +41,7 @@ public class UserService {
                 }
                 contact.setUpdatedAt(LocalDateTime.now());
                 contact.setLinkPrecedence("PRIMARY");
-                if(users.getContacts().size()>1){
+                if(users.getContacts().size()>=1){
                     users.getContacts().getFirst().setLinkPrecedence("SECONDARY");
                 }
                 users.getContacts().addFirst(contact);
