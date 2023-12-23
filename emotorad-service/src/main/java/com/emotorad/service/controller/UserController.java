@@ -4,17 +4,21 @@ import com.emotorad.service.dto.UserDto;
 import com.emotorad.service.repo.entity.User;
 import com.emotorad.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/user")
+@Validated
 public class UserController {
     @Autowired
     private UserService userService;
 
 
     @PostMapping("/saveUser")
-    public void saveUser(@RequestBody UserDto userDto) {
+    public void saveUser(@Valid @RequestBody UserDto userDto) {
         userService.saveUser(userDto);
     }
 

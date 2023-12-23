@@ -94,6 +94,7 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
+
     public void prePersist() {
         if(createdAt==null){
             this.createdAt = LocalDateTime.now();

@@ -2,6 +2,7 @@ package com.emotorad.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.Email;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,6 +12,7 @@ public class UserDto {
     private String id;
     private int phoneNumber;
 
+    @Email
     private String email;
 
     @JsonProperty("contacts")
