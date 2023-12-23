@@ -61,5 +61,43 @@ public class ContactDto {
         this.phoneNumber = phoneNumber;
     }
 
+    public int getLinkedId() {
+        return linkedId;
+    }
 
+    public void setLinkedId(int linkedId) {
+        this.linkedId = linkedId;
+    }
+
+    public String getLinkPrecedence() {
+        return linkPrecedence;
+    }
+
+    public void setLinkPrecedence(String linkPrecedence) {
+        this.linkPrecedence = linkPrecedence;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
+    }
 }
