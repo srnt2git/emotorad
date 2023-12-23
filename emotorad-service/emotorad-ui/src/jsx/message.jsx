@@ -9,7 +9,11 @@ export default function Messaging() {
     const [render, setRender] = useState();
     const [openAddDialog, handleAddDisplay] = useState(false);
     useFetch('message/getMessage', (data) => {
-        setMessage(data[0])       
+        console.log(data)
+        if (data && data[0]) {
+            setMessage(data[0])     
+        }
+         
     }, () => { }, render)
     const openAddDialogBox = () => {
         handleAddDisplay(true);
