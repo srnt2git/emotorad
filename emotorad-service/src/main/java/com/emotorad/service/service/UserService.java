@@ -31,17 +31,14 @@ public class UserService {
     UserServiceUtil userServiceUtil;
 
     public void saveUser(UserDto userDto) {
-        User user = userMapper.dtoToEntity(userDto);
-        List<User> users = (List<User>) userRepository.findAll();
+        User users = userRepository.findByEmail(userServiceUtil.getUser().getUsername());
         if(users!=null){
-            List<User> collect = users.stream().filter(u -> !u.equals(user)).collect(Collectors.toList());
-            if(collect!=null)
-            {
-                collect.stream().forEach(u->{
-                    userRepository.save(u);
-                });
-            }
+            userDto.getContactDtos().stream().forEach(c->{
+                Contact contact=userMapper.dtoToEntity(c);
+                users.getContacts().add(contact);
+            });
         }
+        userRepository.save(users);
 
 
     }

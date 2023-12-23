@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { postWithHeader, getJwtToken, post } from "./httpClient";
 import { useError } from './errorContext';
 import { useJwt } from './jwtcontext';
-export default function AddContact() {
+export default function AddContact({ closeDialog }) {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const { getJwt } = useJwt();
@@ -16,21 +16,26 @@ export default function AddContact() {
     });
    
     const handleSubmit = () => {
-
-        setUser({
-            'id':0,
+        console.log(phoneNumber)
+        console.log(email)
+        const us = {            
             'email': email,
-            'phoneNumber': phoneNumber,
-            'contacts': [
-                {
-                    'id':0,
-                    'email': email,
-                    'phoneNumber': phoneNumber
-                }
-            ]
-        })
-        console.log(JSON.stringify(user));
-        post("user/saveUser", user, (data) => { }, (err) => { }, getJwt())
+                'phoneNumber': phoneNumber,
+                    'contacts': [
+                        {
+                            'id': 0,
+                            'email': email,
+                            'phoneNumber': phoneNumber
+                        }
+                    ]
+        
+        }
+       
+    
+        post("user/saveUser", us, (data) => {
+            closeDialog()
+        }, (err) => { }, getJwt())
+        closeDialog();
     }
     return (<div>
         <table align='center'>
@@ -53,7 +58,7 @@ export default function AddContact() {
                         <label>phoneNumber: </label>
                     </td>
                     <td>
-                        <input name="email" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                        <input name="phoneNumber" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
                     </td>
                 </tr>
 

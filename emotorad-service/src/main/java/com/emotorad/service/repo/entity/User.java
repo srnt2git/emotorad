@@ -2,6 +2,7 @@ package com.emotorad.service.repo.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +10,12 @@ import java.util.List;
 @RedisHash("user")
 public class User {
 
-    @Id
     private String id;
 
     private int phoneNumber;
 
+    @Id
+    @Indexed
     private String email;
 
     private List<Contact> contacts=new ArrayList<>();

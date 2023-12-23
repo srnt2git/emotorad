@@ -1,22 +1,26 @@
 package com.emotorad.service.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class UserDto {
 
-    private int id;
+    private String id;
     private int phoneNumber;
 
     private String email;
+
+    @JsonProperty("contacts")
    private List<ContactDto> contactDtos;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

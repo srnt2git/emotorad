@@ -94,6 +94,14 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
+    public void prePersist() {
+        if(createdAt==null){
+            this.createdAt = LocalDateTime.now();
+        }
+        this.updatedAt=LocalDateTime.now();
 
+
+        // Other auditing information, if needed...
+    }
 
 }

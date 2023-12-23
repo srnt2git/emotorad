@@ -30,7 +30,7 @@ export default function ContactList() {
     };
     const handleResponse = useCallback((data) => {
         console.log(data.contacts)
-        updateContacts(data);
+        updateContacts(data.contacts);
         setRerender(false);
     });
     useFetch('user/findByMail', handleResponse, ((err) => {
@@ -78,7 +78,7 @@ export default function ContactList() {
             className={styles.customDialog}>
             <DialogTitle>Add Contact </DialogTitle>
             <AddContact book={selectedRow}
-                closeDialog={handleAddDisplay}
+                closeDialog={handleAddClose}
                 className={styles.customDialogContent} />
         </Dialog>
     </>);
