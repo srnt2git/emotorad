@@ -52,7 +52,7 @@ const invokeHttp = async (url, method, headers, payLoad, handleResponse, handleE
         try {
             const CONTEXT = process.env.REACT_APP_CONTEXT;
             var response;
-            console.log("The PayLoad " + JSON.stringify(payLoad))
+           // console.log("The PayLoad " + JSON.stringify(payLoad))
             if (payLoad) {
                  response = await fetch(CONTEXT + url, {
                     method: method,
@@ -84,20 +84,19 @@ const invokeHttp = async (url, method, headers, payLoad, handleResponse, handleE
                         handleResponse(response);
                     }
                 } else {
-                   // console.log("The Response is not in JSON format" + response);
-                   // handleResponse(response);
+                    // console.log("The Response is not in JSON format" + response);
+                    // handleResponse(response);
                 }
 
-            } else {
-                const result = await response.json();
-              /*  console.log("error resposne" + result)
-                console.log("result "+JSON.stringify(result))*/
-                handleError(result)
+            } else if (response.status === 400) {
+                throw new Error("Bad Request Valid Values for submitting the form");
+            } else if (response.status === 401) {
+                throw new Error("Failed to Authendicate the request login again");
             }
 
         } catch (error) {
             console.log('Error:', error);
-            const err = { 'errorMessage': "There is an error" + JSON.stringify(error) }
+            const err = { 'errorMessage': error.message }
             handleError(err)
         }
 

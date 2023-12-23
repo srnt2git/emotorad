@@ -1,16 +1,11 @@
 package com.emotorad.service.dto;
 
 
+import com.emotorad.service.validation.PhoneNumber;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.redis.core.RedisHash;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 public class ContactDto {
@@ -20,10 +15,8 @@ public class ContactDto {
     @Email
     private String email;
 
-
-
-    @Size(min = 10,max = 10)
-    private int phoneNumber;
+    @PhoneNumber(message = "Please provide a valid phone number")
+    private String phoneNumber;
 
     private int linkedId;
 
@@ -53,11 +46,11 @@ public class ContactDto {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

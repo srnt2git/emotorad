@@ -5,6 +5,7 @@ import { useJwt } from './jwtcontext';
 export default function AddContact({ closeDialog }) {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const { handleError } = useError()
     const { getJwt } = useJwt();
     const [user, setUser] = useState({
         email: '',
@@ -34,7 +35,10 @@ export default function AddContact({ closeDialog }) {
     
         post("user/saveUser", us, (data) => {
             closeDialog()
-        }, (err) => { }, getJwt())
+        }, (err) => {
+            console.log("The Err "+err);
+            handleError(err)
+        }, getJwt())
         closeDialog();
     }
     return (<div>

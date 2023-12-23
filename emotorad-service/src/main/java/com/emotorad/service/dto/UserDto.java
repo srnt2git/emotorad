@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -19,7 +20,8 @@ public class UserDto {
     private String email;
 
     @JsonProperty("contacts")
-   private List<ContactDto> contactDtos;
+    @Valid
+    private List<ContactDto> contactDtos;
 
     private int linkedId;
 
@@ -32,7 +34,6 @@ public class UserDto {
     private LocalDateTime updatedAt;
 
     private LocalDateTime deletedAt;
-
 
 
     public String getId() {

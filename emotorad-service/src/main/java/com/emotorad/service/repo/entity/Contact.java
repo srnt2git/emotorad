@@ -15,7 +15,7 @@ public class Contact {
 
     private String email;
 
-    private int phoneNumber;
+    private String phoneNumber;
 
     private int linkedId;
 
@@ -86,14 +86,11 @@ public class Contact {
         this.deletedAt = deletedAt;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-
-
 }

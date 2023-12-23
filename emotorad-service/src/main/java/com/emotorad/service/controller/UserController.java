@@ -4,6 +4,8 @@ import com.emotorad.service.dto.UserDto;
 import com.emotorad.service.repo.entity.User;
 import com.emotorad.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +19,11 @@ public class UserController {
     private UserService userService;
 
 
-    @PostMapping("/saveUser")
-    public void saveUser(@Valid @RequestBody UserDto userDto) {
+    @PostMapping(value = "/saveUser",consumes = {MediaType.APPLICATION_JSON_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseBody
+    public ResponseEntity<Object> saveUser(@Valid @RequestBody UserDto userDto) {
         userService.saveUser(userDto);
+        return ResponseEntity.ok("Ok");
     }
 
     @GetMapping("/getAll")
